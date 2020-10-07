@@ -99,8 +99,8 @@ def random_steepest(prev_sequence, points, iteration = 11849, verbose = False, f
 		new_sequence = two_opt(a, b, prev_sequence)
 		
 		# Progression bar
-		if verbose:
-		###if True:
+		#if verbose:
+		if True:
 			print("["+ filename + "]\t" + str(i) + " / " + str(iteration-1), end = "\r")
 		
 		# Compare fitness and decide
@@ -130,8 +130,8 @@ def simulated_annealing(prev_sequence, points, initial_temperature = 1, cool_rat
 		new_sequence = two_opt(a, b, prev_sequence)
 		
 		# Progression bar
-		if verbose:
-		###if True:
+		#if verbose:
+		if True:
 			print("["+ filename + "]\t" + str(i) + " / " + str(iteration-1), end = "\r")
 			
 		# Compare fitness and decide
@@ -174,8 +174,6 @@ def initial_sequence_generation(points):
 		sequence.append(curr)
 	return(np.array(sequence))
 		
-		
-
 def plot_single_path(sequence, points):
 	rearranged_points = points.reindex(np.append(sequence,sequence[0]))
 	plt.plot(rearranged_points["X"],rearranged_points["Y"])
@@ -199,25 +197,24 @@ if __name__ == "__main__":
 	
 	### Algo 2
 	### simulated_annealing(prev_sequence, points, inertia = 1, cool_rate = 1, iteration = 11849, verbose = False, filename = "")
-	seq_algo2, dist_algo2 = simulated_annealing(initial_sequence, points, initial_temperature = 30, cool_rate = 15, iteration = fitness_limit, verbose = verbose, filename = filepath)
+	seq_algo2, dist_algo2 = simulated_annealing(initial_sequence, points, initial_temperature = 10, cool_rate = 5, iteration = fitness_limit, verbose = verbose, filename = filepath)
 	print(dist_algo2)
 	
 	final_seq = seq_algo2
 	
 	# Save sequence
-	if True:
-	#if save_:
-		file_name = "solution"
-		#file_name = input("What is the name of this solution?\n(You can exclude '.csv' at the end.")
+	if save_:
+		#file_name = "solution"
+		file_name = input("What is the name of this solution?\n(You can exclude '.csv' at the end.")
 		with open(file_name + ".csv", 'w') as output_file:
 			output_file.writelines("\n".join(map(str,list(final_seq+1))))
 		
 	### Display plot
 	## Display start state
-	#plt.subplot(211)
-	#plot_single_path(initial_sequence, points)
+	plt.subplot(211)
+	plot_single_path(initial_sequence, points)
 	## Display end state
-	#plt.subplot(212)
-	#plot_single_path(final_seq, points)
-	#
-	#plt.show()
+	plt.subplot(212)
+	plot_single_path(final_seq, points)
+	
+	plt.show()
