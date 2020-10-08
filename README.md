@@ -38,5 +38,5 @@ First figure shows a result without annealing, follwed by a result with annealin
 
 5. Possible Improvements  
 Some possible improvements is getting better understanding of the effect of the cooling temperature. How fast does it cool off, and how much probability does it create/diminish was the questions I had in mind but didn’t have enough time to test it out myself. Building a testing environment for these might be beneficial for the performance.  
-Another possible improvement is implementing a genetic algorithm. I will be attempting this in the meantime until the deadline. I am putting in a lot of computing time (with limited equipment), but people are getting much better score on the leaderboard. So I assume there is an obvious better algorithm as a solution and I suppose a genetic algorithm might help.  
+Another possible improvement is implementing a genetic algorithm. I am putting in a lot of computing time (with limited equipment), but people are getting much better score on the leaderboard. So I assume there is an obvious better algorithm as a solution and I suppose a genetic algorithm might help.  
 Also, studying more about the [known optimal solution](https://www.math.uwaterloo.ca/tsp/rl11849/rl11849.html) will definitely help me improve the performance.  
